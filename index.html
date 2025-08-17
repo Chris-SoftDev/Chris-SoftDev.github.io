@@ -2,11 +2,378 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Software Engineer Porfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ePortfolio | CHRISTOPHER RONCA</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
+        <style>
+            :root {
+                --primary: #3b82f6;
+                --secondary: #f1f5f9;
+                --accent: #6366f1;
+                --text: #22223b;
+                --bg: #fff;
+            }
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                background: var(--secondary);
+                color: var(--text);
+                margin: 0;
+                padding: 0;
+            }
+            header {
+                background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+                color: #fff;
+                padding: 2rem 0 1.5rem 0;
+                text-align: center;
+                box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+                position: relative;
+                overflow: hidden;
+            }
+            header h1 {
+                margin: 0 0 0.5rem 0;
+                font-size: 2.7rem;
+                letter-spacing: 1px;
+                font-weight: 900;
+                text-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+            }
+            header p {
+                margin: 0;
+                font-size: 1.25rem;
+                font-weight: 400;
+                opacity: 0.95;
+                letter-spacing: 0.5px;
+            }
+            nav {
+                background: var(--accent);
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+            nav a {
+                color: #fff;
+                text-decoration: none;
+                margin: 0 1.2rem;
+                font-weight: 500;
+                transition: color 0.2s;
+            }
+            nav a:hover {
+                color: #fbbf24;
+            }
+            main {
+                max-width: 900px;
+                margin: 2rem auto;
+                background: var(--bg);
+                border-radius: 8px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                padding: 2rem 2.5rem;
+            }
+            section {
+                margin-bottom: 2.5rem;
+            }
+            h2 {
+                color: var(--primary);
+                margin-top: 0;
+                margin-bottom: 1rem;
+                font-size: 1.7rem;
+                border-bottom: 2px solid var(--secondary);
+                padding-bottom: 0.3rem;
+            }
+            .artifact-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .artifact-list li {
+                margin-bottom: 1.2rem;
+                background: var(--secondary);
+                border-left: 4px solid var(--accent);
+                padding: 1rem 1.2rem;
+                border-radius: 4px;
+            }
+            .artifact-list li strong {
+                display: block;
+                font-size: 1.1rem;
+                margin-bottom: 0.2rem;
+            }
+            .screenshot-row {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 2rem;
+                margin: 1.5rem 0;
+            }
+            .screenshot-row a {
+                flex: 1 1 0;
+                max-width: 48%;
+                text-align: center;
+            }
+            .screenshot-row img {
+                width: 100%;
+                max-width: 400px;
+                height: 260px;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+                margin: 0 auto;
+                display: block;
+            }
+            @media (max-width: 900px) {
+                .screenshot-row {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                .screenshot-row a {
+                    max-width: 100%;
+                }
+            }
+            .enhancement-screenshot {
+                display: block;
+                margin: 1.5rem auto 1.5rem auto;
+                max-width: 90%;
+                width: 400px;
+                border-radius: 8px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+            }
+            @media (max-width: 600px) {
+                .enhancement-screenshot {
+                    width: 98%;
+                    max-width: 98vw;
+                }
+            }
+            .contact-info {
+                background: var(--secondary);
+                padding: 1rem 1.2rem;
+                border-radius: 4px;
+                font-size: 1.1rem;
+            }
+            .back-to-top {
+                display: none;
+                position: fixed;
+                right: 2rem;
+                bottom: 2rem;
+                background: var(--primary);
+                color: #fff;
+                padding: 0.7rem 1.2rem;
+                border-radius: 2rem;
+                font-size: 1rem;
+                font-weight: bold;
+                text-decoration: none;
+                box-shadow: 0 2px 8px rgba(59,130,246,0.15);
+                z-index: 1000;
+                opacity: 0.85;
+                transition: opacity 0.2s;
+            }
+            .back-to-top:hover {
+                opacity: 1;
+                background: var(--accent);
+            }
+            html:target .back-to-top,
+            body:target .back-to-top {
+                display: block;
+            }
+            @media (max-width: 600px) {
+                .back-to-top {
+                    right: 1rem;
+                    bottom: 1rem;
+                    padding: 0.5rem 1rem;
+                    font-size: 0.9rem;
+                }
+            }
+            @media (max-width: 600px) {
+                main {
+                    padding: 1rem 0.5rem;
+                }
+                header h1 {
+                    font-size: 1.5rem;
+                }
+                h2 {
+                    font-size: 1.2rem;
+                }
+            }
+        </style>
     </head>
     <body>
-        <h1>Christopher Ronca's CS-499 Portfolio Home Page!</h1>
+        <header id="top">
+            <h1>Computer Science ePortfolio</h1>
+            <p>Christopher Ronca</p>
+        </header>
+        <nav>
+            <a href="#self-assessment">Self-Assessment</a>
+            <a href="#artifacts">Artifacts</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <main>
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>
+                    Hello, my name is Christopher Ronca, and I am proud to present my ePortfolio as I complete my Bachelor of Science in Computer Science with a concentration in Software Engineering at Southern New Hampshire University (SNHU). I began this academic journey in August 2020 while serving in the United States Air Force, and after retiring from a 20-year military career, I have dedicated myself fully to advancing my education and preparing for a new chapter in the technology field.
+                    <br><br>
+                    Throughout my time in the Computer Science program, I have gained a strong foundation in both the theory and practice of software development. Three of the most important skills I have developed are:
+                    <br><br>
+                    <strong>Software Development:</strong> I have learned to design, build, and integrate both front-end and back-end applications. This includes working with multiple programming languages, connecting user interfaces to databases, and ensuring that applications are modular, maintainable, and scalable.
+                    <br>
+                    <strong>Algorithmic Problem Solving:</strong> I have honed my ability to analyze problems, design efficient algorithms, and implement appropriate data structures. This has enabled me to write code that is not only correct but also optimized for performance and resource usage—an essential skill for real-world software engineering.
+                    <br>
+                    <strong>Database Design and Management:</strong> I have gained hands-on experience with both relational (SQL) and non-relational (NoSQL) databases, learning how to model data, write complex queries, and ensure data integrity and security. Understanding the strengths and trade-offs of different database systems has been crucial for building robust, data-driven applications.
+                    <br><br>
+                    The enhancements showcased in this portfolio are designed to demonstrate my proficiency in several key areas aligned with the program’s outcomes. Through my work, I aim to highlight:
+                    <br>
+                    <ul>
+                        <li><strong>Full-Stack Application Architecture:</strong> By converting my project to a PERN stack single-page application, I demonstrate the ability to design and implement a modern, modular web application, clearly separating concerns between the frontend (React), backend (Express/Node.js), and database (PostgreSQL).</li>
+                        <li><strong>Technology Adaptability:</strong> Migrating from a Python/MongoDB backend to JavaScript/Node.js and PostgreSQL illustrates my capacity to learn and apply new languages, frameworks, and paradigms.</li>
+                        <li><strong>RESTful API Design:</strong> I have designed and implemented RESTful endpoints to handle CRUD operations, authentication, and error management—essential skills for scalable software engineering.</li>
+                        <li><strong>UI/UX Principles:</strong> Using React, I have built a responsive, interactive user interface, applying best practices in component-based design and state management.</li>
+                    </ul>
+                    These skills directly support my career goals in software engineering, particularly my aspiration to specialize in full-stack web development. By building a modern web application from the ground up, I have prepared myself to work confidently on both the front-end and back-end, which is essential for today’s development roles. My experience with both SQL and NoSQL databases, along with optimizing data models and queries, means I am ready to tackle the data challenges central to most technology jobs.
+                    <br><br>
+                    Ultimately, these experiences have helped me become a well-rounded developer who can adapt to new technologies and contribute meaningfully to any team. This project, in particular, has given me hands-on experience with the tools and workflows used in the industry, deepened my understanding of scalable and efficient application design, and strengthened my confidence to take on complex projects in my chosen field. I am excited to bring these skills into my career and to solve real-world problems with creativity and confidence.
+                </p>
+            </section>
+            <section id="self-assessment">
+                <h2>Professional Self-Assessment</h2>
+                <p>
+                    Completing my coursework in the Computer Science program and developing my ePortfolio have been
+                    transformative experiences that have both showcased my strengths and shaped my professional goals.
+                    Throughout the program, I have gained not only technical proficiency but also a deeper understanding
+                    of the collaborative, communicative, and ethical dimensions of the field. These experiences have
+                    prepared me to contribute effectively in professional environments and have reinforced my commitment
+                    to technical excellence, user-centered design, and lifelong learning.</br></br>
+
+                    One of the most valuable aspects of my education has been the opportunity to collaborate in team environments. In several courses, I worked on group projects where we designed, implemented, and tested software solutions together. These experiences taught me how to communicate technical ideas clearly, resolve conflicts constructively, and leverage the diverse strengths of my teammates. For example, in a software engineering course, I served as a team lead, coordinating our efforts to deliver a web application on a tight deadline. This role required me to balance technical responsibilities with project management and to ensure that all voices were heard during decision-making.</br></br>
+
+                    Communicating with stakeholders has also been a key focus of my development. I have learned to translate complex technical concepts into language that is accessible to non-technical audiences, whether through written documentation, presentations, or client meetings. In my capstone project, I regularly updated my professor and peers on my progress, solicited feedback, and adapted my approach based on their input. This iterative communication process not only improved the quality of my work but also reinforced the importance of aligning technical solutions with user needs and organizational goals.</br></br>
+                    
+                    My coursework has provided a strong foundation in data structures and algorithms, which I have applied to solve real-world problems efficiently. I have implemented and optimized algorithms for searching, sorting, and filtering data, both in academic assignments and in my capstone project. These skills have enabled me to design systems that are not only functional but also performant and scalable.</br></br>
+                    
+                    In the areas of software engineering and databases, I have developed full-stack applications using modern frameworks and best practices. I am proficient in designing normalized relational schemas, writing secure and maintainable code, and integrating frontend and backend components. My experience with version control, automated testing, and continuous integration has prepared me to contribute effectively to professional software development teams.</br></br>
+                    
+                    Security has been a consistent priority throughout my studies. I have implemented authentication and authorization mechanisms, protected sensitive data, and followed secure coding standards. I understand the importance of safeguarding user information and maintaining the integrity of software systems in an increasingly connected world.</br></br>
+                    
+                    The artifacts included in my ePortfolio represent the culmination of these skills and experiences. Together, they demonstrate my ability to design, build, and secure complex software systems from the ground up. My portfolio includes a full-stack web application for managing animal shelter outcomes, which integrates advanced search and filtering, dynamic data visualization, and robust authentication. Each artifact highlights a different aspect of my expertise, whether it is database design, algorithmic problem-solving, or user interface development, collectively they provide a comprehensive view of my capabilities as a computer scientist.</br></br>
+                    
+                    By assembling this portfolio, I have not only documented my technical achievements but also clarified my professional values: collaboration, clear communication, technical excellence, and a commitment to security and user-centered design. I am confident that the skills and mindset I have developed throughout this program have prepared me to make meaningful contributions in the computer science field, and I look forward to applying them as I advance in my career.
+                </p>
+            </section>
+            <section id="artifacts">
+                <h2>Portfolio Artifacts</h2>
+                <ul class="artifact-list">
+                    <li>
+                        <strong>Animal Shelter Outcomes Dashboard (Original Artifact)</strong>
+                        <a href="content/images/original_artifact.png" target="_blank">
+                            <img src="content/images/original_artifact.png" alt="Screenshot of Original Artifact" class="enhancement-screenshot" />
+                        </a>
+                        <span>
+                            The original version of this project was developed using Python, MongoDB, and Jupyter Notebook. It provided a foundational data analysis platform for animal shelter outcomes, enabling users to import, query, and visualize shelter data using Python scripts and interactive Jupyter notebooks. The backend leveraged MongoDB for flexible, document-based storage, while data exploration and reporting were performed through Python’s data science libraries. This early prototype laid the groundwork for later enhancements in software engineering, algorithms, and database design.<br><br>
+                            <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" style="color: var(--primary); font-weight: bold;">
+                                ▶ Watch the code review on YouTube
+                            </a>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>Software Design and Engineering - Enhancement One</strong>
+                        <div class="screenshot-row">
+                            <a href="content/images/enhancement1_1.png" target="_blank">
+                                <img src="content/images/enhancement1_1.png" alt="Login Screenshot" />
+                            </a>
+                            <a href="content/images/enhancement1_2.png" target="_blank">
+                                <img src="content/images/enhancement1_2.png" alt="Dashboard Screenshot" />
+                            </a>
+                        </div>
+                        <span>
+                            The dashboard was designed to help users manage and visualize animal shelter data, and it was built using the PERN stack (PostgreSQL, Express, React, Node.js). I chose to include this artifact in my ePortfolio because it represents the culmination of my software engineering skills and demonstrates my ability to architect, implement, and secure a modern web application from the ground up.</br></br>
+                            
+                            This artifact is significant because it showcases several core competencies in software development. The modular backend, built with Express and Node.js, is responsible for handling API requests, authentication, and business logic, while the React frontend provides a responsive and intuitive user interface. The application features secure authentication using JWTs and HTTP-only cookies, protected API routes, and robust error handling. The dashboard also integrates advanced search, filtering, and CRUD operations, as well as dynamic data visualizations using Chart.js and react-leaflet. These components collectively highlight my proficiency in designing scalable architectures, implementing security best practices, and delivering a seamless user experience.</br></br>
+                            
+                            The process of enhancing this artifact was both challenging and rewarding. One of the most valuable lessons I learned was the importance of maintainable code structure and clear separation of concerns. Refactoring the backend to use middleware for authentication and error handling made the codebase more modular and easier to test. On the frontend, breaking down the UI into reusable React components improved both readability and scalability. I also learned to prioritize user feedback, iterating on the dashboard’s design to make it more intuitive and accessible. Incorporating feedback from peers and my instructor helped me identify usability issues and refine the application’s features.</br></br>
+                            
+                            Security was a major focus during the enhancement process. Implementing JWT-based authentication and protecting sensitive routes required me to research and apply industry best practices. I gained a deeper appreciation for the complexities of secure session management and the importance of safeguarding user data. Additionally, integrating third-party libraries for data visualization and mapping taught me how to evaluate and incorporate external tools effectively.</br></br>
+                            
+                            Throughout this process, I encountered several challenges, such as managing state across complex UI components and ensuring that asynchronous operations did not introduce bugs or inconsistencies. I addressed these challenges by leveraging React’s state management patterns and thoroughly testing each feature. The enhancement also required me to optimize API endpoints for performance and scalability, which involved writing efficient SQL queries and minimizing unnecessary data transfers.</br></br>
+                            
+                            With this enhancement, I have fully met the course outcomes related to software design and engineering, including modular architecture, secure authentication, protected routes, and a modern SPA frontend. I also demonstrated my ability to incorporate feedback, iterate on design, and deliver a professional-quality application. This project has reinforced my passion for full-stack development and has given me the confidence to tackle complex, real-world software challenges in my future career. </br></br>
+
+                            <a href="https://github.com/Chris-SoftDev/CS340---Portfolio" target="_blank" style="color: var(--primary); font-weight: bold;">Original Artifact Repository</a> &nbsp;|&nbsp;
+                            <a href="https://github.com/Chris-SoftDev/cs499capstone_enhancement1" target="_blank" style="color: var(--primary); font-weight: bold;">Enhanced Artifact Repository</a>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>Algorithms and Data Structures - Enhancement Two</strong>
+                        <div class="screenshot-row">
+                            <a href="content/images/enhancement2_1.png" target="_blank">
+                                <img src="content/images/enhancement2_1.png" alt="Backend Filtering Code Screenshot" />
+                            </a>
+                            <a href="content/images/enhancement2_2.png" target="_blank">
+                                <img src="content/images/enhancement2_2.png" alt="Backend Search Code Screenshot" />
+                            </a>
+                        </div>
+                        <span>
+                            This enhancement focused on the core algorithms and data structures that enable users to efficiently search, filter, and explore large datasets of animal shelter records. I included this artifact in my ePortfolio because it demonstrates my ability to design and implement performant algorithms and to structure data in a way that supports real-time, user-driven exploration skills that are essential for any software developer working with complex or growing datasets.</br></br>
+                            
+                            This enhancement is particularly significant because it required me to move beyond basic CRUD operations and address the challenges of scalability and responsiveness. I implemented server-side pagination, multi-field search, and dynamic filtering algorithms that allow users to quickly find relevant records based on rescue type, name, breed, and ID. On the backend, I optimized SQL queries to minimize latency and ensure that filtering and search operations remained fast, even as the dataset grew. On the frontend, I used React’s state management and array methods to keep the user interface responsive and in sync with user input. I also transformed and aggregated data for visualization components, such as the pie chart and map, which required careful data manipulation and mapping.</br></br>
+                            
+                            Reflecting on the process of enhancing this artifact, I learned a great deal about the importance of algorithmic efficiency and thoughtful data structure design. One of the main challenges I faced was ensuring that the application could handle large volumes of data without sacrificing performance. I addressed this by refining my SQL queries, reducing unnecessary data transfers, and leveraging pagination to limit the amount of data loaded at any one time. Incorporating feedback from users and my instructor helped me identify bottlenecks and usability issues, which I addressed through iterative improvements to both the backend and frontend logic.</br></br>
+                            
+                            The enhancement process also reinforced the value of modular, maintainable code. By separating concerns between data retrieval, transformation, and presentation, I made it easier to test and extend the application in the future. This artifact fully meets the course outcomes related to algorithms and data structures, including efficient data retrieval, advanced filtering, and real-time data transformation for visualization. It also demonstrates my ability to respond to feedback, optimize for performance, and deliver a user-friendly experience.</br></br>
+                            
+                            Overall, this enhancement not only improved the functionality and usability of the dashboard but also deepened my understanding of how algorithms and data structures underpin the performance and scalability of modern web applications. It has given me the confidence to tackle similar challenges in future projects and has strengthened my foundation as a computer scientist.</br></br>
+
+                            <a href="https://github.com/Chris-SoftDev/CS340---Portfolio" target="_blank" style="color: var(--primary); font-weight: bold;">Original Artifact Repository</a> &nbsp;|&nbsp;
+                            <a href="https://github.com/Chris-SoftDev/cs499capstone_enhancement2" target="_blank" style="color: var(--primary); font-weight: bold;">Enhanced Artifact Repository</a>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>Databases - Enhancement Three</strong>
+                        <div class="screenshot-row">
+                            <a href="content/images/enhancement3_1.png" target="_blank">
+                                <img src="content/images/enhancement3_1.png" alt="ERD Screenshot" />
+                            </a>
+                            <a href="content/images/enhancement3_2.png" target="_blank">
+                                <img src="content/images/enhancement3_2.png" alt="ETL Script Screenshot" />
+                            </a>
+                        </div>
+                        <span>
+                            This enhancement involved migrating data from an unstructured MongoDB export (CSV) to a fully normalized PostgreSQL schema, and developing a robust ETL (Extract, Transform, Load) script in Python to automate the process. I included this artifact in my ePortfolio because it demonstrates my ability to design relational databases, perform complex data migrations, and ensure data integrity, skills that are essential for any software developer working with real-world data.</br></br>
+                            
+                            This artifact is significant because it showcases my proficiency in database design and data engineering. The migration required me to analyze the original data, identify redundancies, and design a normalized schema with lookup tables, foreign keys, and constraints for breeds, colors, animal types, and outcome types. I wrote a Python ETL script to read the CSV export, deduplicate records, map foreign keys, and load the data into PostgreSQL in an idempotent way. This process not only improved data consistency and query performance but also laid the foundation for advanced features like relational joins, efficient filtering, and secure data access.</br></br>
+                            
+                            Reflecting on the process of enhancing this artifact, I learned a great deal about the challenges and best practices of data migration. One of the main challenges was ensuring that the migration was both accurate and repeatable. I addressed this by making the ETL script idempotent, so it could be safely re-run without creating duplicate records. I also had to carefully handle edge cases, such as missing or inconsistent data, and ensure that all relationships were properly established in the new schema. Incorporating feedback from my instructor and peers helped me refine the schema design and improve the reliability of the migration process.</br></br>
+                            
+                            The enhancement process reinforced the importance of planning and documentation. By creating an ER diagram and thoroughly documenting the schema and migration steps, I made it easier to maintain and extend the database in the future. This artifact fully meets the course outcomes related to databases, including schema normalization, data migration, foreign key management, and ETL scripting. It also demonstrates my ability to solve complex data problems, optimize for performance, and deliver a robust foundation for application development.</br></br>
+                            
+                            Overall, this enhancement not only improved the quality and maintainability of my project’s data layer but also deepened my understanding of relational databases, data engineering, and the value of careful, iterative problem-solving. It has given me the confidence to tackle similar challenges in future projects and has strengthened my foundation as a computer scientist.</br></br>
+
+                            <a href="https://github.com/Chris-SoftDev/CS340---Portfolio" target="_blank" style="color: var(--primary); font-weight: bold;">Original Artifact Repository</a> &nbsp;|&nbsp;
+                            <a href="https://github.com/Chris-SoftDev/cs499capstone_enhancement3" target="_blank" style="color: var(--primary); font-weight: bold;">Enhanced Artifact Repository</a>
+                        </span>
+                    </li>
+                </ul>
+            </section>
+            <section id="contact">
+                <h2>Contact</h2>
+                <div class="contact-info">
+                    <div>Email: <a href="mailto:christopherronca@gmail.com">christopherronca@gmail.com</a></div>
+                    <div>
+                        GitHub:
+                        <a href="https://github.com/chris-softdev" target="_blank">github.com/chris-softdev</a>
+                    </div>
+                    <div>
+                        LinkedIn:
+                        <a href="https://www.linkedin.com/in/christopher-ronca/" target="_blank"
+                            >linkedin.com/in/christopher-ronca/</a
+                        >
+                    </div>
+                </div>
+            </section>
+            <a href="#top" class="back-to-top">↑ Back to Top</a>
+        </main>
+        <script>
+            document.addEventListener('scroll', function() {
+                const btn = document.querySelector('.back-to-top');
+                if (window.scrollY > 300) {
+                    btn.style.display = 'block';
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
+            </script>
     </body>
 </html>
